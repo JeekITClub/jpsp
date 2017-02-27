@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # jpsp
 Jianping Club Students' Platform
 
