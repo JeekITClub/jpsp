@@ -5,7 +5,7 @@
  * Date: 2017/3/3 0003
  * Time: 18:49
  */
-namespace app\index\controller;
+namespace user\controller;
 
 class User
 {
