@@ -5,8 +5,8 @@
     </title>
 </head>
 <body>
-user table<br>
-<table border="1">
+<div style="text-align: center;">User Table</div><br>
+<table border="1" align="center">
     <tr>
         <td>Name</td>
         <td>Data Type</td>
@@ -14,7 +14,7 @@ user table<br>
     </tr>
     <tr>
         <td>id</td>
-        <td>int</td>
+        <td>bigint</td>
         <td>index</td>
     </tr>
     <tr>
@@ -47,15 +47,10 @@ user table<br>
         <td>text</td>
         <td>加入的社团</td>
     </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-
 </table>
-Club Table<br>
-<table border="1">
+<br>
+<div style="text-align: center;">Club Table</div><br>
+<table border="1" align="center">
     <tr>
         <td>
             Name
@@ -102,6 +97,17 @@ Club Table<br>
     </tr>
     <tr>
         <td>
+            proprieter_qq
+        </td>
+        <td>
+            int
+        </td>
+        <td>
+            社长QQ
+        </td>
+    </tr>
+    <tr>
+        <td>
             if_enroll
         </td>
         <td>
@@ -134,9 +140,184 @@ Club Table<br>
         </td>
     </tr>
     <tr>
-
+        <td>
+            label
+        </td>
+        <td>
+            text
+        </td>
+        <td>
+            社团标签，比如科技，人文这样的
+        </td>
+    </tr>
+    <tr>
+        <td>
+            是否已通过注册
+        </td>
+        <td>
+            int
+        </td>
+        <td>
+            Value:0 or 1 用来判断是不是创建后需要审批的社团
+        </td>
+    </tr>
+    <tr>
+        <td>
+            stars
+        </td>
+        <td>
+            float
+        </td>
+        <td>
+            社团评优时进行打分
+        </td>
     </tr>
 
+</table>
+<br>
+<div style="text-align: center;">Post Table</div><br>
+<table align="center" border="1">
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            Data Type
+        </td>
+        <td>
+            Notes
+        </td>
+    </tr>
+    <tr>
+        <td>
+            id
+        </td>
+        <td>
+            bigint
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            post_author
+        </td>
+        <td>
+            text
+        </td>
+        <td>
+            发布动态的社团或活动组委会
+        </td>
+    </tr>
+    <tr>
+        <td>
+            post_time
+        </td>
+        <td>
+            datatime
+        </td>
+        <td>
+            发布时间
+        </td>
+    </tr>
+    <tr>
+        <td>
+            post_status
+        </td>
+        <td>
+            int
+        </td>
+        <td>
+            Value: 0 or 1 ,是否批准发布
+        </td>
+    </tr>
+    <tr>
+        <td>
+            post_title
+        </td>
+        <td>
+            text
+        </td>
+        <td>
+            发布的标题
+        </td>
+    </tr>
+    <tr>
+        <td>
+            comment_status
+        </td>
+        <td>
+            int
+        </td>
+        <td>
+            Value: 0 or 1, 是否可以评论
+        </td>
+    </tr>
+    <tr>
+        <td>
+            category
+        </td>
+        <td>
+            text
+        </td>
+        <td>
+            类别：比如是社团动态，社团招新，等等
+        </td>
+    </tr>
+    <tr>
+        <td>
+            post_content
+        </td>
+        <td>
+            longtext
+        </td>
+        <td>
+
+        </td>
+    </tr>
+
+</table><br>
+<div style="text-align: center">Comment Table</div>
+<table align="center" >
+    <tr>
+        <td>Name</td>
+        <td>Data Type</td>
+        <td>Notes
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>bigint</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>comment_post_id</td>
+        <td>int</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>comment_datetime</td>
+        <td>datetime</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>comment_content</td>
+        <td>longtext</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>comment_author</td>
+        <td>id</td>
+        <td>用id作为标识符</td>
+    </tr>
+    <tr>
+        <td>comment_author_IP</td>
+        <td>text</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
 </table>
 </body>
 </html>
