@@ -1,6 +1,7 @@
 <?php
-
-return [
+use think\Route;
+Route::rule('new/:id','index/News/read');
+/*return [
     '__pattern__' => [
         'name' => '\w+',
     ],
@@ -9,4 +10,4 @@ return [
         ':name' => ['index/hello', ['method' => 'post']],
     ],
 
-];
+];*/

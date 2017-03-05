@@ -5,11 +5,12 @@ class Index
 {
     public function index()
     {
-        return 'hello';
+        return view('index');
     }
 
-    public function passage()
+    public function post()
     {
-        return 'happy';
+        return 'post';
     }
 }
+
