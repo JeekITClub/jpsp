@@ -60,31 +60,6 @@
     </tr>
 </table>
 <br>
-<div style="text-align: center;">Admin Table</div><br>
-<table align="center">
-    <tr>
-        <td>
-            Name
-        </td>
-        <td>
-            Data Type
-        </td>
-        <td>
-            Notes
-        </td>
-    </tr>
-    <tr>
-        <td>
-            id
-        </td>
-        <td>
-            int
-        </td>
-        <td>
-
-        </td>
-    </tr>
-</table>
 <div style="text-align: center;">Club Table</div><br>
 <table border="1" align="center">
     <tr>
@@ -325,7 +300,7 @@
 
 </table><br>
 <div style="text-align: center">Comment Table</div>
-<table align="center" >
+<table align="center" border="1">
     <tr>
         <td>Name</td>
         <td>Data Type</td>
@@ -361,7 +336,43 @@
         <td>text</td>
         <td></td>
     </tr>
+
+</table><br>
+<div style="text-align: center;">Admin Table</div><br>
+<table align="center" border="1">
     <tr>
+        <td>Name</td>
+        <td>Data Type</td>
+        <td>Notes</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>text</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>longtext</td>
+        <td>MD5</td>
+    </tr>
+    <tr>
+        <td>authority</td>
+        <td>int</td>
+        <td>Value:0 or 1 or 2 or 3<br>1:活动组委会 <br>2:社团部<br>3:教师<br>4:管理员</td>
+    </tr>
+    <tr>
+        <td>last_five_times_login_IP</td>
+        <td>text</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>phone_number</td>
+        <td>int</td>
         <td></td>
     </tr>
 </table>
