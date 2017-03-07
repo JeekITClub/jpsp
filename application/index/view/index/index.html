@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html >
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login Form</title>
-
-
-
-
-    <link rel="stylesheet" href="../../../user/model/css/style.css">
-
+<title>主页</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <title>Login</title>
-
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
-
-</head>
-<div id="login">
-    <form name='form-login'>
-        <span class="fontawesome-user"></span>
-        <input type="text" id="user" placeholder="Username">
-
-        <span class="fontawesome-lock"></span>
-        <input type="password" id="pass" placeholder="Password">
-
-        <input type="submit" value="Login">
-
-    </form>
-
-
+    <div style="text-align: center">表格下载</div><br>
+    <table align='center' border="1">
+        <tr>
+            <td>
+            ID
+            </td>
+            <td>
+            表格名称
+            </td>
+            <td>
+            表格上传时间
+            </td>
+            <td>
+            下载链接
+            </td>
+        </tr>
+        <tr>
+            <td>
+            {$id}
+            </td>
+            <td>
+            {$name}
+            </td>
+            <td>
+            {$datetime}
+            </td>
+            <td>
+            {$url}
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
