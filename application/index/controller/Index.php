@@ -5,12 +5,7 @@ class Index
 {
     public function index()
     {
-        return view('index');
-    }
-
-    public function post()
-    {
-        return 'post';
+        $view=new View();
+        return $view->fetch($id,$name,$datetime,$url)
     }
 }
-
