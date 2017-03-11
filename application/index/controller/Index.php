@@ -1,30 +1,35 @@
 <?php
 namespace app\index\controller;
 
-class Index
+class Index extends \think\Controller
 {
     public function index()
     {
-        $view=new View();
-        return $view->fetch($id,$name,$datetime,$url)
+        parent::__construct();
+        return $this->fetch('index',
+            ['id'=>'1', 'name'=>1, 'datetime'=>1,"url"=>'1']
+        );
     }
 
     public function upload(){
-    // 获取表单上传文件 例如上传了001.jpg
-    $file = request()->file('file');
-    // 移动到框架应用根目录/public/uploads/ 目录下
-    $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
-    if($info){
+        parent::__construct();
+        $file = request()->file('upload_file');
+        $path=ROOT_PATH . 'public' . DS . 'uploads';
+
+        $info = $file->move($path);
+        if($info){
         // 成功上传后 获取上传信息
         // 输出 jpg
-        echo $info->getExtension();
+            echo $info->getExtension();
         // 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
-        echo $info->getSaveName();
-        // 输出 42a79759f284b767dfcb2a0197904287.jpg
-        echo $info->getFilename(); 
-    }else{
+
+            echo $info->getFilename();
+
+        }else{
         // 上传失败获取错误信息
-        echo $file->getError();
-    }
+            echo $file->getError();
+        }
+
+        return $this->fetch('upload',['upload_message'=>$path]);
 }
 }

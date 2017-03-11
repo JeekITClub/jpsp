@@ -1,51 +1,16 @@
 <html>
 <head>
-    <title>管理界面</title>
+    <title>登陆</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link type="text/css" herf="">
+
 </head>
 <body>
-<div style="text-align: center">表格上传</div><br>
-<table align="center" border="1">
-	<tr>
-		<td>
-		ID
-		</td>
-		<td>
-		表格名称
-		</td>
-		<td>
-		上传时间
-		</td>
-		<td>
-		下载次数
-		</td>
-		<td>
-		下载地址
-		</td>
-	</tr>
-	<tr>
-		<td>
-		{$id}
-		</td>
-		<td>
-		{$name}
-		</td>
-		<td>
-		{$datetime}
-		</td>
-		<td>
-		{$download_times}
-		</td>
-		<td>
-		{$url}
-		</td>
-	</tr>
-</table>
-<br>
-<div style="text-align:center;">已上交表格</div><br>
-<table align="center" border="1">
-{$upload_data}
-</table>
-<br>
+<form action="admin/index/admin">
+	<input type="text" value="username"><br><br>
+	<input type="password" value="password"><br><br>
+	<input type="submit">
+</form>
+
 </body>
 </html>
