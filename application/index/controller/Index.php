@@ -1,16 +1,17 @@
 <?php
 namespace app\index\controller;
 use think\Request;
-
+use think\Db;
 class Index extends \think\Controller
 {
+    /**
+     * @return mixed
+     */
     public function index()
     {
-        $url=ROOT_PATH.'/public/'.DS.'download'.DS."post.doc";
-        $str="<a href=\"".$url."\"".">下载表格</a>";
-        return $this->fetch('index',
-            ["url"=>$str]
-        );
+
+        return $this->fetch('index');
+
     }
 
     public function upload(Request $request)
@@ -24,11 +25,15 @@ class Index extends \think\Controller
         $file_save_name='Week'.$week."Club".$club;
         $info=$file->validate(['ext'=>'docx,doc'])->move(ROOT_PATH.'public'.DS.'uploads',$file_save_name);
         if($info){
-            $this->success('文件上传成功：'.$info->getRealPath());
+            Db::connect('mysql://root:@127.0.0.1:3306/jpsp#utf8');
+            $week_sql_str='week'.$week;
+            Db::table("club")->where('clubid',$club)->update([$week_sql_str=>1]);
+            return $this->fetch('upload',['upload_message'=>'上传成功']);
+            #$this->success('文件上传成功：'.$info->getRealPath());
         }else{
             $this->error($file->getError());
         }
-        return $this->fetch('upload', ['upload_message' => $_FILES['upload_file']['name']]);
+
     }
 }
 ?>
