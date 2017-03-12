@@ -19,7 +19,8 @@ Class Admin extends \think\Controller
     {
         $request=Request::instance();
         $username=$request->param()['username'];
-
+        Db::connect('mysql://root:@127.0.0.1:3306/jpsp#utf8');
+        Db::query();
         return $this->fetch('admin',["name"=>$username]);
 
            # return $this->fetch('admin',['name'=>'error']);
