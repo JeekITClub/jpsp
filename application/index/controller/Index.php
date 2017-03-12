@@ -1,35 +1,34 @@
 <?php
 namespace app\index\controller;
+use think\Request;
 
 class Index extends \think\Controller
 {
     public function index()
     {
-        parent::__construct();
+        $url=ROOT_PATH.'/public/'.DS.'download'.DS."post.doc";
+        $str="<a href=\"".$url."\"".">下载表格</a>";
         return $this->fetch('index',
-            ['id'=>'1', 'name'=>1, 'datetime'=>1,"url"=>'1']
+            ["url"=>$str]
         );
     }
 
-    public function upload(){
-        parent::__construct();
-        $file = request()->file('upload_file');
-        $path=ROOT_PATH . 'public' . DS . 'uploads';
-
-        $info = $file->move($path);
-        if($info){
-        // 成功上传后 获取上传信息
-        // 输出 jpg
-            echo $info->getExtension();
-        // 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
-
-            echo $info->getFilename();
-
-        }else{
-        // 上传失败获取错误信息
-            echo $file->getError();
+    public function upload(Request $request)
+    {
+        $file=$request->file('upload_file');
+        if(empty($file)){
+            $this->error('请选择上传文件');
         }
-
-        return $this->fetch('upload',['upload_message'=>$path]);
+        $week=$_POST['week'];
+        $club=$_POST['club'];
+        $file_save_name='Week'.$week."Club".$club;
+        $info=$file->validate(['ext'=>'docx,doc'])->move(ROOT_PATH.'public'.DS.'uploads',$file_save_name);
+        if($info){
+            $this->success('文件上传成功：'.$info->getRealPath());
+        }else{
+            $this->error($file->getError());
+        }
+        return $this->fetch('upload', ['upload_message' => $_FILES['upload_file']['name']]);
+    }
 }
-}
+?>
