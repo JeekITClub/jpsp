@@ -7,9 +7,6 @@
  */
 namespace app\index\controller;
 use app\index\model\Club;
-use think\Db;
-use think\Request;
-use user\controller\User;
 
 Class Admin extends \think\Controller
 {
@@ -31,9 +28,11 @@ Class Admin extends \think\Controller
             if(1==1){
                 function getData(){
                     global $tablecontent;
-                    for($i=1;$i<=10;$i++){
-                        $data=Club::get($i);
-                        $tablecontent=$tablecontent."<td>".$data['clubid']."</td>".
+                    #$club=Club::get(2);
+                    $club=new Club();
+                    for($i=1;$i<=61;$i++){
+                    $data=$club->where('id',$i)->find();
+                    $tablecontent=$tablecontent."<tr><td>".$data['clubid']."</td>".
                         "<td>".$data['clubname']."</td>".
                         "<td>".$data['week1']."</td>".
                         "<td>".$data['week2']."</td>".
@@ -54,14 +53,17 @@ Class Admin extends \think\Controller
                         "<td>".$data['week17']."</td>".
                         "<td>".$data['week18']."</td>".
                         "<td>".$data['week19']."</td>".
-                        "<td>".$data['week20']."</td";
+                        "<td>".$data['week20']."</td></tr>";
+
                     }
+
                     return $tablecontent;
                 }
 
                 $username="1";
                 $table=getData();
-               return $this->fetch('admin',["name"=>$username,"tablecontent"=>$table]);
+
+                return $this->fetch('admin',["name"=>$username,"tablecontent"=>$table]);
             }else{
                 $this->error('密码错误');
             }
