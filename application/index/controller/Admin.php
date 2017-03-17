@@ -16,6 +16,7 @@ Class Admin extends \think\Controller
     }
     public function admin()
     {
+
         /*
          *!empty($_POST['username'])&&!empty($_POST['password'])
          */
@@ -70,6 +71,7 @@ Class Admin extends \think\Controller
         }else{
             $this->error("未填写密码");
         }
+
 
 
 
