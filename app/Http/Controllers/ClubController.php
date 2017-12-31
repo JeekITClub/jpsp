@@ -9,7 +9,7 @@ class ClubController extends Controller
 {
     public function list()
     {
-        return view('club/list',['clubs'=>Club::all()]);
+        return view('pages/index/club_list');
     }
     public function get_detail_by_id($id)
     {
@@ -17,6 +17,6 @@ class ClubController extends Controller
     }
     public function list_by_category($category)
     {
-        return view('club/list_category',['clubs'=>Club::where()];)
+        return view('club/list_category',['clubs'=>Club::where()]);
     }
 }
